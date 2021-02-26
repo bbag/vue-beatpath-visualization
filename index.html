@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Beatpath Voting Method Visualization</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <!-- This is just so we can quickly see the data we're working with without having to look at the code -->
+            <h2>Data Array:</h2>
+            <!--<pre>[
+            <span v-for="row in sampleData">  <span v-for="item in row"><span v-if="item == null">-  </span><span v-if="item !== null">{{ item }} </span> </span><br></span>]</pre>-->
+            <table>
+                <tbody>
+                    <tr>
+                        <th></th>
+                        <th v-for="label in diagramLabels">
+                            <i>p</i>[*,{{ label }}]
+                        </th>
+                    </tr>
+                    <tr v-for="(label, index) in diagramLabels">
+                        <td>
+                            <i>p</i>[{{ label }},*]
+                        </td>
+                        <td v-for="n in sampleLabels.length" v-bind:class="tableCellRedOrGreen(index, n)">
+                            {{ sampleData[index][n-1]}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Visualization:</h2>
+            <!-- This canvas is the dynamically generated visualization -->
+            <!-- v-draw-canvas is a custom directive (search for drawCanvas in the Vue code) -->
+            <canvas id="canvasElement" width="638" height="408" v-draw-canvas="[sampleData, sampleLabels]"></canvas>
+        </div>
+        <script type="application/javascript" src="visualization.js"></script>
+    </body>
+</html>

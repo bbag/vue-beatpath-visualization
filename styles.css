@@ -1,0 +1,36 @@
+body {
+    background: #20262E;
+    color: #FFF;
+    font-family: sans-serif;
+    padding: 16px;
+}
+pre {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    margin: 16px 0;
+    padding: 16px;
+}
+canvas {
+    background: #264581;
+    margin: 16px 0;
+}
+table {
+    background: #FFF;
+    color: #000;
+    font-family: serif;
+    margin: 16px 0;
+}
+td, th {
+    border: 1px solid #BBB;
+    padding: 8px 12px;
+    text-align: center;
+}
+td.green {
+    background: #DFD;
+}
+td.red {
+    background: #FDD;
+}
+td.gray {
+    background: #DDD;
+}
